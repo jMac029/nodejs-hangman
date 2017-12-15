@@ -58,5 +58,5 @@ typings/
 .env
 
 # macos .ds_store file
-.ds_store
+.DS_Store
 

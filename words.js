@@ -1,26 +1,26 @@
 // require the Letters constructor from letters.js
-const Letters = require("./letters.js");
+let Characters = require("./characters.js");
 
 function Words(word) {
     this.word = word;
     // empty array to store all the letters objects that make up the word
-    this.letters = [];
+    this.characters = [];
     this.wordCompleted = false;
 
     // function to retrieve the letters that make up the selected word
     this.retrieveLetters = () => {
         for (var index in this.word) {
-            let newCharacter = new Letters(this.word[i]);
-            this.letters.push(newCharacter);
+            let newCharacter = new Characters(this.word[i]);
+            this.characters.push(newCharacter);
         }
     };
 
-    this.checkLetter = (letterSelected) => {
+    this.checkCharacter = (characterSelected) => {
         let toReturn = 0;
         // iterate through each letter to check to see if it is matches a letter within the word
-        this.letters.forEach((letter) => {
-            if (letter.letter === letterSelected) {
-                letter.visible = true;
+        this.character.forEach((character) => {
+            if (character.character === characterSelected) {
+                character.visible = true;
                 toReturn++;
             }
         });
@@ -29,9 +29,9 @@ function Words(word) {
 
     this.renderWord = () => {
         let display = "";
-        this.letters.forEach((letter) => {
-            let currentLetter = letter.render();
-            display += currentLetter;
+        this.character.forEach((letter) => {
+            let currentLetter = characters.render();
+            display += currentCharacter;
         });
         return display;
     };

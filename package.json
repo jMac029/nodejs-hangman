@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jMac029/nodejs-hangman#readme",
   "dependencies": {
-    "inquirer": "^4.0.1"
+    "inquirer": "^4.0.1",
+    "is-alphanumeric": "^1.0.0"
   }
 }

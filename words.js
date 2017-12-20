@@ -1,48 +1,53 @@
 // require the Letters constructor from letters.js
-let Characters = require("./characters.js");
+var Character = require("./characters.js");
 
-function Words(word) {
+// Words constructor for handling the words in the hangman game
+var Words = function(word) {
+    var that = this;
     this.word = word;
-    // empty array to store all the letters objects that make up the word
+    // empty array to store all the character objects that make up the word
     this.characters = [];
-    this.wordCompleted = false;
+    this.wordFound = false;
 
-    // function to retrieve the letters that make up the selected word
-    this.retrieveLetters = () => {
-        for (var index in this.word) {
-            let newCharacter = new Characters(this.word[i]);
+    // function to retrieve the characters that make up the selected word
+    this.retrieveCharacters = function() {
+        for (var i = 0; i < that.word.length; i++) {
+            var newCharacter = new Character(that.word[i]);
+            //console.log(newCharacter)
             this.characters.push(newCharacter);
         }
     };
 
-    this.checkCharacter = (characterSelected) => {
-        let toReturn = 0;
+    this.isWordFound = () => {
+        if (this.characters.every(function(char) {
+                return char.visible === true;
+            })) {
+            this.wordFound = true;
+            return true;
+        }
+    };
+
+    this.checkCharacters = function(characterSelected) {
+        var toReturn = 0;
         // iterate through each letter to check to see if it is matches a letter within the word
-        this.character.forEach((character) => {
-            if (character.character === characterSelected) {
-                character.visible = true;
+        this.characters.forEach(function(char) {
+            if (char.character === characterSelected) {
+                char.visible = true;
                 toReturn++;
             }
         });
         return toReturn;
     };
 
-    this.renderWord = () => {
-        let display = "";
-        this.character.forEach((letter) => {
-            let currentLetter = characters.render();
+    this.renderWord = function() {
+        var display = "";
+        that.characters.forEach(function(char) {
+            var currentCharacter = char.characterRender();
+            //console.log(currentCharacter)
             display += currentCharacter;
+            //console.log(display)
         });
         return display;
-    };
-
-    this.wordCompleted = () => {
-        if (this.letters.every((letter) => {
-                return letter.visible === true;
-            })) {
-            this.wordCompleted = true;
-            return true;
-        }
     };
 }
 

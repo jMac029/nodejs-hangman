@@ -1,17 +1,18 @@
-// letter constructor for manipulating the view of the letters within the hangman words
-function Characters(character) {
-    this.character = character;
-    // boolean to toggle if letter has been made visible
+// Character constructor for manipulating the view of the characters within the hangman words
+var Character = function(char) {
+    this.character = char;
+    // boolean to toggle if character has been made visible
     this.visible = false;
-    this.render = () => {
+    this.characterRender = function() {
         // if the letter character is a "space" this display a space
-        if (this.character === " ") {
+        if (this.character == " ") {
             this.visible = true;
             return " ";
-        } else if (this.character === "-") {
+            // if the letter character is a "-" this display a "-"
+        } else if (this.character == "-") {
             this.visible = true;
             return "-";
-        } else if (!this.visible) {
+        } else if (this.visible === false) {
             return " _ ";
         } else {
             return this.character;
@@ -19,5 +20,5 @@ function Characters(character) {
     };
 }
 
-// export the Letters constructor to be passed onto the words.js file
-module.exports = Characters;
+// export the Character constructor to be passed onto the words.js file
+module.exports = Character;

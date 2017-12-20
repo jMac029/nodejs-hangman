@@ -1,6 +1,6 @@
 // file for storing the various words that will be used for the hangman game
 
-exports.model = {
+exports.data = {
     wordArray: [
         "ENDOR",
         "JAKKU",
